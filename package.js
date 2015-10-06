@@ -24,6 +24,6 @@ Package.onUse(function (api) {
 
 Package.onTest(function (api) {
   api.use("tinytest");
-  api.use("glass:glass-ui");
+  api.use("photonic:glass-ui");
   api.addFiles("glass-ui-tests.js");
 });
