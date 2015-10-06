@@ -1,6 +1,6 @@
 Package.describe({
   name: "photonic:glass-ui",
-  version: "0.2.3",
+  version: "0.2.4",
   // Brief, one-line summary of the package.
   summary: "Inspired by the Day Made of Glass videos....",
   // URL to the Git repository containing the source code for this package.

@@ -38,3 +38,15 @@ Template.registerHelper("backgroundD", function (argument) {
 Template.registerHelper("backgroundE", function (argument) {
   return "background-color: " + Session.get('colorE') + ";";
 });
+
+
+Template.registerHelper("getOpacity", function (){
+  return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + ");";
+});
+Template.registerHelper("getOpacityWithCorner", function (){
+  if (Session.get('appWidth') > 768) {
+    return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," + Session.get("glassOpacity") + ") 0) top right;";
+  } else {
+    return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + "); top: 50px;";
+  }
+});
