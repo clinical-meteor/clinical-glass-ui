@@ -131,6 +131,22 @@
 .visible{
   visibility: visible;
 }
+.unselectable{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.selectable{
+  -webkit-touch-callout: all;
+  -webkit-user-select: all;
+  -khtml-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
+}
 
 
 //==================================================================================================
@@ -161,18 +177,18 @@
   background-color: inherit;
 }
 .control-label{
-    //margin-top: 10px;
-    position: absolute;
-    font-size: 90%;
-    //right: 40px;
-    color: #999999;
-    //background-color: #bbbbbb;
-    padding-left: 1em;
-    padding-right: 1em;
-    //padding-top: .1em;
-    //padding-bottom: .1em;
-    //border-bottom-right-radius:.25em;
-    //border-bottom-left-radius:.25em;
+  //margin-top: 10px;
+  position: absolute;
+  font-size: 90%;
+  //right: 40px;
+  color: #999999;
+  //background-color: #bbbbbb;
+  padding-left: 1em;
+  padding-right: 1em;
+  //padding-top: .1em;
+  //padding-bottom: .1em;
+  //border-bottom-right-radius:.25em;
+  //border-bottom-left-radius:.25em;
 }
 .recordId{
   position: absolute;
@@ -183,4 +199,5 @@
 .glass{
   border: 0px;
   width: 100%;
+  background-color: rgba(0,0,0,0);
 }
