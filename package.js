@@ -1,6 +1,6 @@
 Package.describe({
   name: "photonic:glass-ui",
-  version: "0.2.8",
+  version: "0.2.9",
   summary: "Inspired by the Day Made of Glass videos....",
   git: "http://github.com/awatson1978/meteor-cookbook/packages/starynight-glass-ui",
   documentation: "README.md"
