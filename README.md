@@ -1,4 +1,4 @@
-photonic:glass-ui
+clinical:glass-ui
 ===============================
 
 Generally inspried by the [Day Made of Glass](https://www.youtube.com/watch?v=jzLYh3j6xn8) videos.  Currently, this package only contains a ``.less`` stylesheet that's focused on haptics (big buttons), multi-device accessibility (media states), and transparency effects.  
