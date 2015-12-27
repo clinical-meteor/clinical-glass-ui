@@ -1,6 +1,6 @@
 Package.describe({
   name: "clinical:glass-ui",
-  version: "1.3.1",
+  version: "1.3.5",
   summary: "Inspired by the Day Made of Glass videos....",
   git: "http://github.com/clinical-meteor/clinical-glass-ui",
   documentation: "README.md"
@@ -29,6 +29,9 @@ Package.onUse(function (api) {
 
   api.addFiles("client/glass-ui.js", 'client');
   api.addFiles("client/glass-ui.less", 'client');
+
+  api.addFiles("client/theme.helpers.js", 'client');
+  api.addFiles("client/themes.global.less", 'client');
 
   //api.export('afArrayField_photonic');
 

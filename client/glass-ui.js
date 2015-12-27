@@ -41,12 +41,60 @@ Template.registerHelper("backgroundE", function (argument) {
 
 
 Template.registerHelper("getOpacity", function (){
-  return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + ");";
+  var backgroundColor = "";
+  if (Session.equals('foregroundTheme', 'light')) {
+    //light theme
+    backgroundColor = "255, 255, 255";
+  } else {
+    //dark theme
+    backgroundColor = "128, 128, 128";
+  }
+
+  if (Session.equals('foregroundTheme', 'light')) {
+    //light theme
+    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
+  } else {
+    //dark theme
+    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
+  }
+
 });
 Template.registerHelper("getOpacityWithCorner", function (){
-  if (Session.get('appWidth') > 768) {
-    return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," + Session.get("glassOpacity") + ") 0) top right;";
+  var backgroundColor = "";
+  var themeString = "";
+  
+  if (Session.equals('foregroundTheme', 'light')) {
+    //light theme
+    backgroundColor = "255, 255, 255";
+    // themeString = "color: black; ";
   } else {
-    return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + "); top: 50px;";
+    //dark theme
+    backgroundColor = "128, 128, 128";
+    // themeString = "color: white; ";
+  }
+
+  if (Session.get('appWidth') > 768) {
+    return themeString + "background: linear-gradient(225deg, transparent 28.28px, rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ") 0) top right;";
+  } else {
+    return themeString + "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + "); top: 50px;";
   }
 });
+
+
+// Template.registerHelper("getOpacityWithCorner", function () {
+//   if (Session.get('appWidth') > 768) {
+//     if (Session.get('mainPanelIsCard')) {
+//       return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," +
+//         Session.get("glassOpacity") + ") 0) top right;";
+//     } else {
+//       return "background-color: rgba(255,255,255," + Session.get("glassOpacity") +
+//         "); top: 50px;";
+//     }
+//   } else {
+//     return "background-color: rgba(255,255,255," + Session.get("glassOpacity") +
+//       "); top: 50px;";
+//   }
+// });
+// Template.registerHelper("getOpacity", function () {
+//   return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + ");";
+// });
