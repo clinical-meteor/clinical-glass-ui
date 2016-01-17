@@ -29,6 +29,7 @@ Package.onUse(function (api) {
 
   api.addFiles("client/glass-ui.js", 'client');
   api.addFiles("client/glass-ui.less", 'client');
+  api.addFiles("client/form.less", 'client');
 
   api.addFiles("client/theme.helpers.js", 'client');
   api.addFiles("client/themes.global.less", 'client');

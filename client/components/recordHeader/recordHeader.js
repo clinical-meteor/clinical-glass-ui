@@ -12,7 +12,7 @@ Template.recordHeader.helpers({
     }
   },
   isRecord: function () {
-    process.env.TRACE && console.log('Template.recordHeader.isRecord', this);
+    //process.env.TRACE && console.log('Template.recordHeader.isRecord', this);
 
     if (this.type === "record") {
       return true;
@@ -52,6 +52,8 @@ Template.recordHeader.helpers({
     return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," + Session.get("glassOpacity") + ") 0) top right;";
   }
 });
+
+
 
 Template.recordHeader.events({
   "click .listButton": function (event, template) {

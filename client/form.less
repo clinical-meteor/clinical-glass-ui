@@ -1,0 +1,100 @@
+// Standard text input
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  // Sizing
+  padding: .75rem 0;
+  line-height: 1.5rem !important;
+
+  // Style
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  outline: none;
+
+  &[disabled] { opacity: .5; }
+}
+
+// Remove chrome/saf autofill yellow background
+// input:-webkit-autofill {
+//   -webkit-box-shadow: 0 0 0 1000px @color-empty inset;
+// }
+
+[class^="btn-"], [class*=" btn-"] {
+  font-size: 14px;
+  line-height: 20px;
+  line-height: 20px !important;
+  letter-spacing: .3em;
+  text-indent: .3em;
+  text-transform: uppercase;
+  -webkit-transition: all 200ms ease-in;
+  -moz-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  color: #ffffff;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.btn-large{
+  padding: 1em 1.25em;
+}
+
+// Custom checkbox
+.checkbox {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 44px;
+
+  // input[type="checkbox"] {
+  //   font-size: 1em;
+  //   visibility: hidden;
+  //
+  //   & + span:before {
+  //     // .position(absolute, 50%, auto, auto, 50%, .85em, .85em);
+  //     // .transform(translate3d(-50%, -50%, 0));
+  //     background: transparent;
+  //     content: '';
+  //     display: block;
+  //   }
+  //
+  //   &:checked + span:before {
+  //     box-shadow: none;
+  //
+  //     // Icon family from icon.lessimport
+  //     font-family: 'tasks';
+  //   	speak: none;
+  //   	font-style: normal;
+  //   	font-weight: normal;
+  //   	font-variant: normal;
+  //   	text-transform: none;
+  //   	line-height: 1;
+  //
+  //   	// Better Font Rendering
+  //   	-webkit-font-smoothing: antialiased;
+  //   	-moz-osx-font-smoothing: grayscale;
+  //
+  //   	// Checkmark icon
+  //     content: "\e612";
+  //   }
+  // }
+  //
+
+}
+
+// Input with an icon
+.input-symbol {
+  display: inline-block;
+  position: relative;
+
+  // Styling
+  input {
+    padding-left: 3em;
+    width: 100%;
+  }
+}
