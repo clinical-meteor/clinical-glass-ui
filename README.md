@@ -39,4 +39,4 @@ There's a slight API conflict with the Google Glass project.  I'd be perfectly w
 ==================================
 #### Licensing  
 
-MIT.  Use as you will.
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
