@@ -18,6 +18,10 @@ Template.registerHelper("getThemeStyle", function (){
     backgroundColor = "128, 128, 128";
   }
 
+  if (typeof ActiveLayout === "object") {
+    backgroundColor = ActiveLayout.getPageColor();
+  }
+
   if (Session.equals('foregroundTheme', 'light')) {
     //light theme
     return "color: black; background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";

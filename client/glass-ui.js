@@ -50,6 +50,10 @@ Template.registerHelper("getOpacity", function (){
     backgroundColor = "128, 128, 128";
   }
 
+  if (typeof ActiveLayout === "object") {
+    backgroundColor = ActiveLayout.getPageColor();
+  }
+
   if (Session.equals('foregroundTheme', 'light')) {
     //light theme
     return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
@@ -62,7 +66,7 @@ Template.registerHelper("getOpacity", function (){
 Template.registerHelper("getOpacityWithCorner", function (){
   var backgroundColor = "";
   var themeString = "";
-  
+
   if (Session.equals('foregroundTheme', 'light')) {
     //light theme
     backgroundColor = "255, 255, 255";
@@ -71,6 +75,10 @@ Template.registerHelper("getOpacityWithCorner", function (){
     //dark theme
     backgroundColor = "128, 128, 128";
     // themeString = "color: white; ";
+  }
+
+  if (typeof ActiveLayout === "object") {
+    backgroundColor = ActiveLayout.getPageColor();
   }
 
   if (Session.get('appWidth') > 768) {
