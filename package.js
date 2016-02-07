@@ -1,6 +1,6 @@
 Package.describe({
   name: "clinical:glass-ui",
-  version: "1.3.8",
+  version: "1.3.9",
   summary: "Inspired by the Day Made of Glass videos....",
   git: "http://github.com/clinical-meteor/clinical-glass-ui",
   documentation: "README.md"
@@ -9,8 +9,7 @@ Package.describe({
 Package.onUse(function (api) {
   api.versionsFrom("1.1.0.2");
 
-  api.use("fortawesome:fontawesome@4.3.0");
-  api.use("awatson1978:fonts-helveticas@1.0.4");
+  api.use("clinical:fonts@1.0.0");
   api.use("clinical:barcode@3.0.0");
   api.use("grove:less@0.1.1");
   api.use("session");

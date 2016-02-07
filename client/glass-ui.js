@@ -50,17 +50,15 @@ Template.registerHelper("getOpacity", function (){
     backgroundColor = "128, 128, 128";
   }
 
-  if (typeof ActiveLayout === "object") {
-    backgroundColor = ActiveLayout.getPageColor();
-  }
+  // this will detect the layout object, but we don't have a good plan for page colors
+  // TODO: implement darkroom palette, so we have a better handle on how to specify
+  // the rgba values in our Theme object
 
-  if (Session.equals('foregroundTheme', 'light')) {
-    //light theme
-    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
-  } else {
-    //dark theme
-    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
-  }
+  // if (typeof ActiveLayout === "object") {
+  //   backgroundColor = ActiveLayout.getPageColor();
+  // }
+
+  return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
 
 });
 Template.registerHelper("getOpacityWithCorner", function (){
@@ -77,32 +75,23 @@ Template.registerHelper("getOpacityWithCorner", function (){
     // themeString = "color: white; ";
   }
 
-  if (typeof ActiveLayout === "object") {
-    backgroundColor = ActiveLayout.getPageColor();
-  }
+  // this will detect the layout object, but we don't have a good plan for page colors
+  // TODO: implement darkroom palette, so we have a better handle on how to specify
+  // the rgba values in our Theme object
+  
+  // if (typeof ActiveLayout === "object") {
+  //   backgroundColor = ActiveLayout.getPageColor();
+  // }
 
+  // corners are a graphical luxury;
+  // we don't want to dislay them on small devices; there's just not enough room
   if (Session.get('appWidth') > 768) {
-    return themeString + "background: linear-gradient(225deg, transparent 28.28px, rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ") 0) top right;";
+    if (Session.get('opacityCorners')) {
+      return themeString + "background: linear-gradient(225deg, transparent 28.28px, rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ") 0) top right;";
+    } else {
+      return themeString + "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
+    }
   } else {
-    return themeString + "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + "); top: 50px;";
+    return themeString + "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
   }
 });
-
-
-// Template.registerHelper("getOpacityWithCorner", function () {
-//   if (Session.get('appWidth') > 768) {
-//     if (Session.get('mainPanelIsCard')) {
-//       return "background: linear-gradient(225deg, transparent 28.28px, rgba(255,255,255," +
-//         Session.get("glassOpacity") + ") 0) top right;";
-//     } else {
-//       return "background-color: rgba(255,255,255," + Session.get("glassOpacity") +
-//         "); top: 50px;";
-//     }
-//   } else {
-//     return "background-color: rgba(255,255,255," + Session.get("glassOpacity") +
-//       "); top: 50px;";
-//   }
-// });
-// Template.registerHelper("getOpacity", function () {
-//   return "background-color: rgba(255,255,255," + Session.get("glassOpacity") + ");";
-// });
