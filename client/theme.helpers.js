@@ -1,8 +1,6 @@
-Template.registerHelper("getTheme", function (){
-  if (Session.equals('foregroundTheme', 'light')) {
-    return "lightTheme";
-  } else {
-    return "darkTheme";
+Template.registerHelper("isDarkroom", function (){
+  if (Session.get('isDarkroomMode')) {
+    return "darkroomTheme";
   }
 });
 
