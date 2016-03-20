@@ -4,6 +4,8 @@ Session.setDefault("colorB", "");
 Session.setDefault("colorC", "");
 Session.setDefault("colorD", "");
 Session.setDefault("colorE", "");
+Session.setDefault("paintPageBackgrounds", true);
+Session.setDefault("paintCardBackgrounds", false);
 
 
 Template.registerHelper("colorA", function (argument) {
@@ -40,28 +42,40 @@ Template.registerHelper("backgroundE", function (argument) {
 });
 
 
-Template.registerHelper("getOpacity", function (){
-  var backgroundColor = "";
-  if (Session.equals('foregroundTheme', 'light')) {
-    //light theme
-    backgroundColor = "255, 255, 255";
+Template.registerHelper("getCardOpacity", function (){
+  if (Session.get('paintCardBackgrounds')) {
+    var backgroundColor = "";
+    if (Session.equals('foregroundTheme', 'light')) {
+      //light theme
+      backgroundColor = "255, 255, 255";
+    } else {
+      //dark theme
+      backgroundColor = "128, 128, 128";
+    }
+    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
   } else {
-    //dark theme
-    backgroundColor = "128, 128, 128";
+    return "";
   }
-
-  // this will detect the layout object, but we don't have a good plan for page colors
-  // TODO: implement darkroom palette, so we have a better handle on how to specify
-  // the rgba values in our Theme object
-
-  // if (typeof ActiveLayout === "object") {
-  //   backgroundColor = ActiveLayout.getPageColor();
-  // }
-
-  return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
-
 });
+Template.registerHelper("getPageOpacity", function (){
+  if (Session.get('paintPageBackgrounds')) {
+    var backgroundColor = "";
+    if (Session.equals('foregroundTheme', 'light')) {
+      //light theme
+      backgroundColor = "255, 255, 255";
+    } else {
+      //dark theme
+      backgroundColor = "128, 128, 128";
+    }
+    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
+  } else {
+    return "";
+  }
+});
+
+// DEPRECATED
 Template.registerHelper("getOpacityWithCorner", function (){
+  console.log('{{getOpacityWithCorner}} has been deprecated, in favor of {{getCardOpacity}} and {{getPageOpacity}}');
   var backgroundColor = "";
   var themeString = "";
 
@@ -78,7 +92,7 @@ Template.registerHelper("getOpacityWithCorner", function (){
   // this will detect the layout object, but we don't have a good plan for page colors
   // TODO: implement darkroom palette, so we have a better handle on how to specify
   // the rgba values in our Theme object
-  
+
   // if (typeof ActiveLayout === "object") {
   //   backgroundColor = ActiveLayout.getPageColor();
   // }
@@ -93,5 +107,22 @@ Template.registerHelper("getOpacityWithCorner", function (){
     }
   } else {
     return themeString + "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
+  }
+});
+// DEPRECATED
+Template.registerHelper("getOpacity", function (){
+  console.log('{{getOpacity}} has been deprecated, in favor of {{getCardOpacity}} and {{getPageOpacity}}');
+  if (Session.get('paintCardBackgrounds')) {
+    var backgroundColor = "";
+    if (Session.equals('foregroundTheme', 'light')) {
+      //light theme
+      backgroundColor = "255, 255, 255";
+    } else {
+      //dark theme
+      backgroundColor = "128, 128, 128";
+    }
+    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
+  } else {
+    return "";
   }
 });
