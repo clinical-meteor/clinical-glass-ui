@@ -6,7 +6,7 @@ Session.setDefault("colorD", "");
 Session.setDefault("colorE", "");
 Session.setDefault("paintPageBackgrounds", true);
 Session.setDefault("paintCardBackgrounds", false);
-
+Session.setDefault("glassOpacity", 0.95);
 
 Template.registerHelper("colorA", function (argument) {
   return "color: " + Session.get('colorA') + ";";
