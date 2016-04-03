@@ -52,7 +52,7 @@ Template.registerHelper("getCardOpacity", function (){
       //dark theme
       backgroundColor = "128, 128, 128";
     }
-    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
+    return "background-color: rgba(" + backgroundColor + ", " + Session.get("glassOpacity") + ");";
   } else {
     return "";
   }
@@ -67,7 +67,7 @@ Template.registerHelper("getPageOpacity", function (){
       //dark theme
       backgroundColor = "128, 128, 128";
     }
-    return "background-color: rgba(" + backgroundColor + "," + Session.get("glassOpacity") + ");";
+    return "background-color: rgba(" + backgroundColor + ", " + Session.get("glassOpacity") + ");";
   } else {
     return "";
   }
