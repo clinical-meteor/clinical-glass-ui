@@ -1,16 +1,15 @@
 Package.describe({
   name: "clinical:glass-ui",
-  version: "1.3.11",
+  version: "1.3.12",
   summary: "Inspired by the Day Made of Glass videos....",
   git: "http://github.com/clinical-meteor/clinical-glass-ui",
   documentation: "README.md"
 });
 
 Package.onUse(function (api) {
-  api.versionsFrom("1.1.0.2");
+  api.versionsFrom("1.1.0.3");
 
-  api.use("clinical:fonts@1.0.0");
-  api.use("clinical:barcode@3.0.0");
+  api.use("clinical:fonts@1.1.0");
   api.use("grove:less@0.1.1");
   api.use("session");
   api.use("templating");
