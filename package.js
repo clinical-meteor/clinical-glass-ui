@@ -12,9 +12,9 @@ Package.onUse(function (api) {
   api.use("clinical:fonts@1.1.0");
 
   api.use('meteor-platform');
-  api.use('ecmascript');
+  api.use('ecmascript@0.9.0');
   api.use('mongo');
-  api.use('react-meteor-data');
+  api.use('react-meteor-data@0.2.15');
   api.use('session');
 
   // api.use("grove:less@0.1.1");
