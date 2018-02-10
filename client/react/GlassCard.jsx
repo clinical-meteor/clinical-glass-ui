@@ -4,7 +4,7 @@ import ReactMixin from 'react-mixin';
 //import { ReactMeteorData } from 'meteor/react-meteor-data';
 //import { Session } from 'meteor/session';
 
-export default class GlassCard extends React.Component {
+export class GlassCard extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -107,3 +107,5 @@ export default class GlassCard extends React.Component {
 }
 
 ReactMixin(GlassCard.prototype, ReactMeteorData);
+
+export default GlassCard;

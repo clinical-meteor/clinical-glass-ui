@@ -116,3 +116,5 @@ export class VerticalCanvas extends React.Component {
 
 
 ReactMixin(VerticalCanvas.prototype, ReactMeteorData);
+
+export default VerticalCanvas;

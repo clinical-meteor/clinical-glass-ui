@@ -1,6 +1,6 @@
 Package.describe({
   name: "clinical:glass-ui",
-  version: "2.0.0",
+  version: "2.0.1",
   summary: "Inspired by the Day Made of Glass videos....",
   git: "http://github.com/clinical-meteor/clinical-glass-ui",
   documentation: "README.md"
@@ -48,3 +48,9 @@ Package.onTest(function (api) {
   api.use("tinytest");
   api.use("clinical:glass-ui");
 });
+
+
+// Npm.depends({
+//   "material-ui": "0.20.0",
+//   "lodash": "4.17.4"
+// });
