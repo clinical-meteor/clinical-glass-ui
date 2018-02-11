@@ -99,3 +99,5 @@ export class FullPageCanvas extends React.Component {
 
 
 ReactMixin(FullPageCanvas.prototype, ReactMeteorData);
+
+export default FullPageCanvas;
