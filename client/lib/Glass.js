@@ -1,6 +1,6 @@
 import { Session } from 'meteor/session';
 
-Glass = {
+export default Glass = {
   getOpacity: function(){
     return Session.get('globalOpacity');
   },
@@ -46,5 +46,3 @@ Glass = {
     return style;
   }
 };
-
-export default Glass;
