@@ -1,6 +1,6 @@
 Package.describe({
   name: "clinical:glass-ui",
-  version: "2.1.2",
+  version: "2.1.3",
   summary: "Inspired by the Day Made of Glass videos....",
   git: "http://github.com/clinical-meteor/clinical-glass-ui",
   documentation: "README.md"
