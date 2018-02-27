@@ -99,7 +99,7 @@ export class GlassCard extends React.Component {
 
   render(){
     return (
-       <Card id={this.props.id} className="glassCard" containerStyle={this.data.style} style={this.data.style} onClick={this.props.onClick } >
+       <Card id={this.props.id} className="glassCard" containerStyle={this.data.style} style={this.data.style} onClick={this.props.onClick} zDepth={this.props.zDepth} >
         { this.props.children }
        </Card>
     );
