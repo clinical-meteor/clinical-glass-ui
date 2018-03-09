@@ -20,10 +20,9 @@ export class FullPageCanvas extends React.Component {
       }
     };
 
-
     var canvasWidth = Session.get('appWidth') - 1;
     
-    // but if we're passed in a width via a prop, then overide
+    // if we're passed in a width via a prop, then overide
     if (this.props.width) {
       if(this.props.width == 'wide'){
         canvasWidth = Session.get('appWidth') - 1;
@@ -74,8 +73,6 @@ export class FullPageCanvas extends React.Component {
         data.style.paddingRight = '0px';
       }
     }
-
-
 
     data.style.overflowY = 'scroll';
     data.style.WebkitOverflowScrolling = 'touch';

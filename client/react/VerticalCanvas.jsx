@@ -22,8 +22,6 @@ export class VerticalCanvas extends React.Component {
       }
     };
 
-
-
     // figure out if the vertical canvas should be wide or not
     if(Session.get('isWideHorizontally')){
       canvasWidth = Session.get('appWidth') - 1;
@@ -39,7 +37,6 @@ export class VerticalCanvas extends React.Component {
         canvasWidth = this.props.width;
       }
     }
-
 
     if (Session.get('appWidth') > canvasWidth) {
       data.style.position = 'relative';
@@ -92,8 +89,6 @@ export class VerticalCanvas extends React.Component {
       }
     }
 
-
-
     data.style.overflowY = 'scroll';
     data.style.WebkitOverflowScrolling = 'touch';
     data.style.WebkitTransform = 'translateZ(0px)';
@@ -113,7 +108,6 @@ export class VerticalCanvas extends React.Component {
     );
   }
 }
-
 
 ReactMixin(VerticalCanvas.prototype, ReactMeteorData);
 

@@ -1,8 +1,6 @@
 import { Card } from 'material-ui/Card';
 import React from 'react';
 import ReactMixin from 'react-mixin';
-//import { ReactMeteorData } from 'meteor/react-meteor-data';
-//import { Session } from 'meteor/session';
 
 export class GlassCard extends React.Component {
   constructor(props) {
@@ -46,35 +44,7 @@ export class GlassCard extends React.Component {
       data.style.backdropFilter = 'blur(5px)';
     }
 
-
-    // // this could be a mixin/extracted to a helper function
-    // // Glass.autoHeight()
-    // if (this.props.height === "auto") {
-    //   console.log("is autoheight");
-
-    //   var autoHeight = Session.get('appHeight');
-
-    //   if(Session.get('showNavbars')){
-    //     autoHeight = autoHeight - 128;
-    //   }
-    //   if(Session.get('showSearchbar')){
-    //     autoHeight = autoHeight - 64;
-    //   }
-    //   if(Session.get('mainPanelIsCard')){
-    //     autoHeight = autoHeight - 40;
-    //   }
-
-    //   data.style.height = autoHeight + 'px';
-    // }
-
-
-    // if (this.props.width) {
-    //   data.style.width = this.props.width;
-    // }
-    // return data;
-
     if (this.props.height === "auto") {
-      console.log("is autoheight");
 
       if (Session.get('hasPagePadding')) {
         data.style.height = Session.get('appHeight') - 160 + 'px';
@@ -92,7 +62,6 @@ export class GlassCard extends React.Component {
       data.style.height = this.props.height;      
     }
     data.style.paddingBottom = '0px';
-    // GlassFactory.addStyling(data);
 
     return data;    
   }
