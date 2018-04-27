@@ -16,11 +16,11 @@ export class VerticalCanvas extends React.Component {
 
   getMeteorData() {
     let data = {
-      style: {
-        WebkitTransition: 'ease .2s',
-        transition: 'ease .2s'
-      }
+      style: {}
     };
+
+    data.style.WebkitTransition = 'ease .2s';
+    data.style.transition = 'ease .2s';
 
     // figure out if the vertical canvas should be wide or not
     if(Session.get('isWideHorizontally')){
@@ -96,6 +96,8 @@ export class VerticalCanvas extends React.Component {
     data.style.WebkitPerspective = 'translateZ(0px)';
 
     data.style.height = Session.get('appHeight');
+
+    //data.style.border = '1px solid blue';
 
     return data;
   }
