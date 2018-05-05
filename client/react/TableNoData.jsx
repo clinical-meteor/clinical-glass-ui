@@ -14,7 +14,10 @@ export class TableNoData extends React.Component {
     return(
         <div style={{width: '100%', paddingTop: '120px', textAlign: 'center'}} >
             <h3>No data.</h3>
-            <span>Are you sure you're logged in?</span>
+            <span>Are you sure you're logged in?</span><br/>
+            <span>Do you have an access token?</span><br/>
+            <span>Is your search a wide enough scope?</span><br/>
+            <span>Are you subscribed to this resource?</span><br/>
         </div>
     );
   }
