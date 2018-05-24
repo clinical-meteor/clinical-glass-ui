@@ -4,10 +4,9 @@ import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin from 'react-mixin';
 import { Session } from 'meteor/session';
 
-Meteor.startup(function (){
-  Session.set('appSurfaceOffset', false);
-  Session.set('hasPagePadding', true);
-});
+Session.setDefault('appSurfaceOffset', false);
+Session.setDefault('hasPagePadding', true);
+Session.setDefault('showCanvas', true);
 
 export class VerticalCanvas extends React.Component {
   constructor(props) {
@@ -23,12 +22,25 @@ export class VerticalCanvas extends React.Component {
     data.style.transition = 'ease .2s';
 
     // figure out if the vertical canvas should be wide or not
+    if(Session.get('showCanvas')){
+      data.style.left = '0px';
+    } else {
+      data.style.left = '-4400px';      
+    }
+
+    if(this.props.left){
+      data.style.left = this.props.left;
+    }
+
+    // figure out if the vertical canvas should be wide or not
     if(Session.get('isWideHorizontally')){
       canvasWidth = Session.get('appWidth') - 1;
     } else {
       canvasWidth = 1200;      
     }
     
+
+
     // but if we're passed in a width via a prop, then overide
     if (this.props.width) {
       if(this.props.width == 'wide'){

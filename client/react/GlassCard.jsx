@@ -12,6 +12,9 @@ export class GlassCard extends React.Component {
     let data = {
       style: {
         overflowY: 'scroll'
+      }, 
+      containerStyle: {
+
       }
     };
 
@@ -35,14 +38,14 @@ export class GlassCard extends React.Component {
 
     // GlassFactory.addBlur(data.style);
     if (Session.get('glassBlurEnabled')) {
-      data.style.filter = 'blur(3px)';
-      data.style.webkitFilter = 'blur(3px)';
+      data.containerStyle.filter = 'blur(3px)';
+      data.containerStyle.webkitFilter = 'blur(3px)';
     }
 
-    // GlassFactory.addBackgroundBlur(data.style);
-    if (Session.get('backgroundBlurEnabled')) {
-      data.style.backdropFilter = 'blur(5px)';
-    }
+    // // GlassFactory.addBackgroundBlur(data.style);
+    // if (Session.get('backgroundBlurEnabled')) {
+    //   data.style.backdropFilter = 'blur(5px)';
+    // }
 
     if (this.props.height === "auto") {
 
@@ -68,7 +71,7 @@ export class GlassCard extends React.Component {
 
   render(){
     return (
-       <Card id={this.props.id} className="glassCard" containerStyle={this.data.style} style={this.data.style} onClick={this.props.onClick} zDepth={this.props.zDepth} >
+       <Card id={this.props.id} className="glassCard" containerStyle={this.data.containerStyle} style={this.data.style} onClick={this.props.onClick} zDepth={this.props.zDepth} >
         { this.props.children }
        </Card>
     );
