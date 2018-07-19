@@ -50,11 +50,15 @@ export class GlassCard extends React.Component {
     if (this.props.height === "auto") {
 
       if (Session.get('hasPagePadding')) {
-        data.style.height = Session.get('appHeight') - 160 + 'px';
+
+        // 168 = 2 * 84 
+        // 168 = 2 * (64 + 20)
+        // 168 = 2 * ( 64px navbar height + 20px margin )
+        data.style.height = Session.get('appHeight') - 168 + 'px';
         data.style.overflowY = "scroll";
       } else {
         if (Session.get('mainPanelIsCard')) {
-          data.style.height = Session.get('appHeight') - 40 + 'px';
+          data.style.height = Session.get('appHeight') - 50 + 'px';
           data.style.overflowY = "scroll";
         } else {
           data.style.height = Session.get('appHeight') + 'px';

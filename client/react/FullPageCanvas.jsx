@@ -30,7 +30,9 @@ export class FullPageCanvas extends React.Component {
         canvasWidth = this.props.width;
       }
     }
-
+    if(this.props.backgroundColor){
+      data.style.backgroundColor = this.props.backgroundColor;
+    }
 
     if (Session.get('appWidth') > canvasWidth) {
       data.style.position = 'relative';
