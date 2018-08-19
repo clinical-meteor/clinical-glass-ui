@@ -39,7 +39,7 @@ export class GlassCard extends React.Component {
     // GlassFactory.addBlur(data.style);
     if (Session.get('glassBlurEnabled')) {
       data.containerStyle.filter = 'blur(3px)';
-      data.containerStyle.webkitFilter = 'blur(3px)';
+      data.containerStyle.WebkitFilter = 'blur(3px)';
     }
 
     // // GlassFactory.addBackgroundBlur(data.style);

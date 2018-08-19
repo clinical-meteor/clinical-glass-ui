@@ -64,12 +64,12 @@ export class FullPageCanvas extends React.Component {
 
 
     if (Session.get('hasPagePadding')) {
-      data.style.paddingLeft = '20px';
-      data.style.paddingRight = '20px';
+      data.style.paddingLeft = '15px';
+      data.style.paddingRight = '15px';
     } else {
       if (Session.get('mainPanelIsCard')) {
-        data.style.paddingLeft = '20px';
-        data.style.paddingRight = '20px';
+        data.style.paddingLeft = '15px';
+        data.style.paddingRight = '15px';
       } else {
         data.style.paddingLeft = '0px';
         data.style.paddingRight = '0px';
@@ -89,7 +89,7 @@ export class FullPageCanvas extends React.Component {
 
   render(){
     return (
-      <section className="pageContainer verticalContainer" style={this.data.style}>
+      <section className="pageContainer fullPageContainer" style={this.data.style}>
           { this.props.children }
       </section>
     );
