@@ -8,3 +8,26 @@ describe('clinical:glass-ui', function () {
     });
   });
 });
+
+
+describe('clinical:glass-ui', function () {
+  var server = meteor();
+  var client = browser(server);
+
+  beforeEach(function () {
+    //console.log('beforeEach');
+  });
+  afterEach(function () {
+    //console.log('afterEach');
+  });
+  it('exists globally', function () {
+    expect(UI).to.exist;
+  });
+
+  it('BlazeHelper > Glass UI should control PageOpacity', function () {
+    return client.execute(function () {
+      expect(UI._globalHelpers['getPageOpacity']()).to.equal('background-color: rgba(128, 128, 128, 0.95);');
+    });
+  });
+
+});
