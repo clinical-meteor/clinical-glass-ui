@@ -42,6 +42,10 @@ export class GlassCard extends React.Component {
       data.containerStyle.WebkitFilter = 'blur(3px)';
     }
 
+    if(this.props.blur){
+      data.containerStyle.filter = 'blur(3px)';
+      data.containerStyle.WebkitFilter = 'blur(3px)';
+    }
     // // GlassFactory.addBackgroundBlur(data.style);
     // if (Session.get('backgroundBlurEnabled')) {
     //   data.style.backdropFilter = 'blur(5px)';
@@ -58,8 +62,16 @@ export class GlassCard extends React.Component {
         data.style.overflowY = "scroll";
       } else {
         if (Session.get('mainPanelIsCard')) {
-          data.style.height = Session.get('appHeight') - 50 + 'px';
-          data.style.overflowY = "scroll";
+
+          if (Session.get('showSearchbar')) {
+            data.style.height = Session.get('appHeight') - 114 + 'px';
+            data.style.overflowY = "scroll";
+          } else {
+            data.style.height = Session.get('appHeight') - 50 + 'px';
+            data.style.overflowY = "scroll";
+          }
+  
+
         } else {
           data.style.height = Session.get('appHeight') + 'px';
           data.style.overflowY = "scroll";
@@ -69,6 +81,10 @@ export class GlassCard extends React.Component {
       data.style.height = this.props.height;      
     }
     data.style.paddingBottom = '0px';
+
+    if(this.props.backgroundColor){
+      data.style.background = this.props.backgroundColor;
+    }
 
     return data;    
   }

@@ -1,4 +1,5 @@
 import { Session } from 'meteor/session';
+import { get } from 'lodash';
 
 export default Glass = {
   getOpacity: function(){
@@ -43,6 +44,31 @@ export default Glass = {
     }
     this.blur(style);
     this.darkroom(style);
+    return style;
+  },
+  getContextImage: function(style, path){
+    if (!style) {
+      style = {};
+    }
+
+    if (!path){
+      path = get(Meteor, 'settings.public.defaults.registration.background')
+    }
+
+    if(path){
+      style.backgroundImage = 'url(' + path + ')';
+      style.WebkitBackgroundSize = 'contain';
+      style.MozBackgroundSize = 'contain';
+      style.OBackgroundSize = 'contain';
+      style.backgroundSize = 'contain';
+      style.backgroundPositionY = 'bottom';
+      style.backgroundRepeat = 'no-repeat';
+      style.backgroundColor = 'white';
+      style.position = 'absolute';
+      style.height = '100%';
+      style.width = '100%';
+    } 
+
     return style;
   }
 };

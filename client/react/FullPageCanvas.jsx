@@ -17,7 +17,8 @@ export class FullPageCanvas extends React.Component {
       style: {
         WebkitTransition: 'ease .2s',
         transition: 'ease .2s'
-      }
+      },
+      background: null
     };
 
     var canvasWidth = Session.get('appWidth') - 1;
@@ -33,6 +34,7 @@ export class FullPageCanvas extends React.Component {
     if(this.props.backgroundColor){
       data.style.backgroundColor = this.props.backgroundColor;
     }
+
 
     if (Session.get('appWidth') > canvasWidth) {
       data.style.position = 'relative';
@@ -84,6 +86,10 @@ export class FullPageCanvas extends React.Component {
 
     data.style.height = Session.get('appHeight');
 
+
+    if(this.props.background){
+      data.style.background = this.props.background;
+    }
     return data;
   }
 
