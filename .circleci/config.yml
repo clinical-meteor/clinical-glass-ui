@@ -117,6 +117,7 @@ jobs:
     - run: cd ../baseline && npm i --save-dev selenium-webdriver@3.6.0 chromedriver
     - run: cd ../baseline && meteor add dispatch:mocha practicalmeteor:chai
     - run: cd ../baseline && meteor add clinical:glass-ui 
+    - run: cd ../baseline && meteor remove static-html
     - run: cd ../baseline && mkdir imports 
     - run: cp tests/GlassUiTests.tests.js ../baseline/imports/
 
