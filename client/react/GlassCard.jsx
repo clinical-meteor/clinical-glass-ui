@@ -1,6 +1,7 @@
 import { Card } from 'material-ui/Card';
 import React from 'react';
 import ReactMixin from 'react-mixin';
+import PropTypes from 'prop-types';
 
 export class GlassCard extends React.Component {
   constructor(props) {
@@ -91,13 +92,26 @@ export class GlassCard extends React.Component {
 
   render(){
     return (
-       <Card id={this.props.id} className="glassCard" containerStyle={this.data.containerStyle} style={this.data.style} onClick={this.props.onClick} zDepth={this.props.zDepth} >
-        { this.props.children }
-       </Card>
+      <div className="glassCardBoundary">
+        <Card id={this.props.id} className="glassCard" containerStyle={this.data.containerStyle} style={this.data.style} onClick={this.props.onClick} zDepth={this.props.zDepth} >
+          { this.props.children }
+        </Card>
+        { this.props.footer }
+      </div>
     );
   }
 }
 
-ReactMixin(GlassCard.prototype, ReactMeteorData);
 
+GlassCard.propTypes = {
+  id: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  style: PropTypes.object,
+  blur: PropTypes.bool,
+  height: PropTypes.string,
+  onClick: PropTypes.func,
+  zDepth: PropTypes.number,
+  footer: PropTypes.object
+};
+ReactMixin(GlassCard.prototype, ReactMeteorData);
 export default GlassCard;
