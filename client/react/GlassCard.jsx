@@ -2,6 +2,7 @@ import { Card } from 'material-ui/Card';
 import React from 'react';
 import ReactMixin from 'react-mixin';
 import PropTypes from 'prop-types';
+import { get } from 'lodash';
 
 export class GlassCard extends React.Component {
   constructor(props) {
@@ -14,13 +15,14 @@ export class GlassCard extends React.Component {
       style: {
         overflowY: 'scroll'
       }, 
+      borderStyle: {},
       containerStyle: {
 
       }
     };
 
-    if (this.props && this.props.style) {
-      data.style = this.props.style;
+    if (get(this, 'props.style')) {
+      data.style = get(this, 'props.style');
     }
 
     // GlassFactory.addOpacity(data.style);
@@ -79,12 +81,18 @@ export class GlassCard extends React.Component {
         }
       }
     } else {
-      data.style.height = this.props.height;      
+      data.style.height = get(this, 'props.height');      
     }
     data.style.paddingBottom = '0px';
 
     if(this.props.backgroundColor){
-      data.style.background = this.props.backgroundColor;
+      data.style.background = get(this, 'props.backgroundColor');
+    }
+    if(!this.props.boxShadow){
+      data.style.boxShadow = 'none';       
+    }
+    if(this.props.width){
+      data.borderStyle.width = get(this, 'props.width')
     }
 
     return data;    
@@ -92,7 +100,7 @@ export class GlassCard extends React.Component {
 
   render(){
     return (
-      <div className="glassCardBoundary">
+      <div className="glassCardBoundary" style={this.data.borderStyle} >
         <Card id={this.props.id} className="glassCard" containerStyle={this.data.containerStyle} style={this.data.style} onClick={this.props.onClick} zDepth={this.props.zDepth} >
           { this.props.children }
         </Card>
@@ -109,8 +117,10 @@ GlassCard.propTypes = {
   style: PropTypes.object,
   blur: PropTypes.bool,
   height: PropTypes.string,
+  width: PropTypes.string,
   onClick: PropTypes.func,
   zDepth: PropTypes.number,
+  boxShadow: PropTypes.bool,
   footer: PropTypes.object
 };
 ReactMixin(GlassCard.prototype, ReactMeteorData);
