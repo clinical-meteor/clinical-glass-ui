@@ -88,9 +88,33 @@ export class GlassCard extends React.Component {
     if(this.props.backgroundColor){
       data.style.background = get(this, 'props.backgroundColor');
     }
-    if(!this.props.boxShadow){
-      data.style.boxShadow = 'none';       
+
+    if(this.props.boxShadow){
+      switch (this.props.boxShadow) {
+        case 'sharp':
+          data.containerStyle.boxShadow = 'grey 5px 5px 5px';               
+          break;
+        case 'diffuse':
+          data.containerStyle.boxShadow = 'grey 10px 10px 20px';               
+          break;
+        case 'light':
+          data.containerStyle.boxShadow = 'lightgrey 10px 10px 20px';               
+          break;
+        case 'cloudy':
+          data.containerStyle.boxShadow = 'lightgrey 20px 20px 40px';               
+          break;
+        case 'none':
+          data.containerStyle.boxShadow = 'none';               
+          break;
+      
+        default:
+          data.containerStyle.boxShadow = 'none';       
+          break;
+      }
+    } else {
+      data.containerStyle.boxShadow = 'none';       
     }
+
     if(this.props.width){
       data.borderStyle.width = get(this, 'props.width')
     }
@@ -120,7 +144,7 @@ GlassCard.propTypes = {
   width: PropTypes.string,
   onClick: PropTypes.func,
   zDepth: PropTypes.number,
-  boxShadow: PropTypes.bool,
+  boxShadow: PropTypes.string,
   footer: PropTypes.object
 };
 ReactMixin(GlassCard.prototype, ReactMeteorData);
