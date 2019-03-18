@@ -79,6 +79,11 @@ export class GlassCard extends React.Component {
           data.style.height = Session.get('appHeight') + 'px';
           data.style.overflowY = "scroll";
         }
+        
+        // maybe we need to be able to overide the scroll parameter
+        if(this.props.overflowY){
+          data.style.overflowY = this.props.overflowY;
+        }
       }
     } else {
       data.style.height = get(this, 'props.height');      
@@ -145,7 +150,8 @@ GlassCard.propTypes = {
   onClick: PropTypes.func,
   zDepth: PropTypes.number,
   boxShadow: PropTypes.string,
-  footer: PropTypes.object
+  footer: PropTypes.object,
+  overflowY: PropTypes.string
 };
 ReactMixin(GlassCard.prototype, ReactMeteorData);
 export default GlassCard;
