@@ -49,49 +49,34 @@ export class GlassCard extends React.Component {
       data.containerStyle.filter = 'blur(3px)';
       data.containerStyle.WebkitFilter = 'blur(3px)';
     }
-    // // GlassFactory.addBackgroundBlur(data.style);
-    // if (Session.get('backgroundBlurEnabled')) {
-    //   data.style.backdropFilter = 'blur(5px)';
-    // }
 
     if (this.props.height === "auto") {
 
-      if (Session.get('hasPagePadding')) {
+      data.style.height = Session.get('appHeight');
 
-        // 168 = 2 * 84 
-        // 168 = 2 * (64 + 20)
-        // 168 = 2 * ( 64px navbar height + 20px margin )
-        data.style.height = Session.get('appHeight') - 168 + 'px';
-        data.style.overflowY = "scroll";
-      } else {
-        if (Session.get('mainPanelIsCard')) {
-
-          if (Session.get('showSearchbar')) {
-            data.style.height = Session.get('appHeight') - 114 + 'px';
-            data.style.overflowY = "scroll";
-          } else {
-            data.style.height = Session.get('appHeight') - 50 + 'px';
-            data.style.overflowY = "scroll";
-          }
-  
-
-        } else {
-          data.style.height = Session.get('appHeight') + 'px';
-          data.style.overflowY = "scroll";
-        }
-        
-        // maybe we need to be able to overide the scroll parameter
-        if(this.props.overflowY){
-          data.style.overflowY = this.props.overflowY;
-        }
+      if(Session.get('showNavbars')){
+        data.style.height = data.style.height - 128;
       }
+      if(Session.get('showSearchbar')){
+        data.style.height = data.style.height - 64;
+      }
+      if(Session.get('mainPanelIsCard')){
+        data.style.height = data.style.height - 40;
+      }
+
     } else {
       data.style.height = get(this, 'props.height');      
     }
+
+    data.style.height = data.style.height + 'px';
     data.style.paddingBottom = '0px';
+
 
     if(this.props.backgroundColor){
       data.style.background = get(this, 'props.backgroundColor');
+    }
+    if(this.props.overflowY){
+      data.style.overflowY = this.props.overflowY;
     }
 
     if(this.props.boxShadow){
