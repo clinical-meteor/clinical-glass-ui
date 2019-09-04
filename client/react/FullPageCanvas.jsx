@@ -22,6 +22,8 @@ export class FullPageCanvas extends React.Component {
 
     // start with the user defined style
     if (this.props.style) {
+      
+      // we do a deep copy, otherwise it's read-only
       Object.assign(data.style, this.props.style);
     }
 
@@ -34,12 +36,10 @@ export class FullPageCanvas extends React.Component {
     
     // if we're passed in a width via a prop, then overide
     if (this.props.width) {
-      if(this.props.width == 'wide'){
-        canvasWidth = Session.get('appWidth') - 1;
-      } else {
-        canvasWidth = this.props.width;
-      }
+      canvasWidth = this.props.width;
     }
+
+    // override the backgroundColor
     if(this.props.backgroundColor){
       data.style.backgroundColor = this.props.backgroundColor;
     }
