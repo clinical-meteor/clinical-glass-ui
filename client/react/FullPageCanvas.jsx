@@ -3,6 +3,7 @@ import React from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import ReactMixin from 'react-mixin';
 import { Session } from 'meteor/session';
+import PropTypes from 'prop-types';
 
 export class FullPageCanvas extends React.Component {
   constructor(props) {
@@ -13,14 +14,22 @@ export class FullPageCanvas extends React.Component {
     Session.set('hasPagePadding', true);
   }
   getMeteorData() {
+    // start with blank slate
     let data = {
-      style: {
-        WebkitTransition: 'ease .2s',
-        transition: 'ease .2s'
-      },
+      style: {},
       background: null
     };
 
+    // start with the user defined style
+    if (this.props.style) {
+      Object.assign(data.style, this.props.style);
+    }
+
+    // // we're going to manage the animations though
+    data.style.WebkitTransition = 'ease .2s';
+    data.style.transition = 'ease .2s';
+
+    // begin with the assumption that the canvas should be as wide as the app (aka the entire viewport)
     var canvasWidth = Session.get('appWidth') - 1;
     
     // if we're passed in a width via a prop, then overide
@@ -90,6 +99,12 @@ export class FullPageCanvas extends React.Component {
     if(this.props.background){
       data.style.background = this.props.background;
     }
+
+    // if we're passed in a width via a prop, then overide
+    if (this.props.position) {
+      data.style.position = this.props.position;
+    }
+
     return data;
   }
 
@@ -102,7 +117,13 @@ export class FullPageCanvas extends React.Component {
   }
 }
 
-
+FullPageCanvas.propTypes = {
+  height: PropTypes.string,
+  width: PropTypes.number,
+  position: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  background: PropTypes.string,
+  top: PropTypes.string
+};
 ReactMixin(FullPageCanvas.prototype, ReactMeteorData);
-
 export default FullPageCanvas;
