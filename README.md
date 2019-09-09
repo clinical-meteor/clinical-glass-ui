@@ -5,6 +5,34 @@ Generally inspried by the [Day Made of Glass](https://www.youtube.com/watch?v=jz
 
 **IMPORTANT:  Version 2.0 has moved to React.**  
 
+
+==================================
+### API
+
+
+
+#### GlassCard
+
+  id:               PropTypes.string
+  backgroundColor:  PropTypes.string
+  style:            PropTypes.object
+  blur:             PropTypes.bool
+  height:           PropTypes.string
+  width:            PropTypes.string
+  onClick:          PropTypes.func
+  zDepth:           PropTypes.number
+  boxShadow:        PropTypes.string
+  footer:           PropTypes.object
+  overflowY:        PropTypes.string
+
+
+_height_  
+- auto
+Sizes the card automatically, depending if Navbars are displayed.  Approximately the screen height minus 160 pixesl or so.
+
+- tabpanel
+The same as auto, but calculated with a tab bar.  Viewport height minus 220px or so.  
+
 ==================================
 #### Architectural Roadmap
 

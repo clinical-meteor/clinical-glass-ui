@@ -50,8 +50,7 @@ export class GlassCard extends React.Component {
       data.containerStyle.WebkitFilter = 'blur(3px)';
     }
 
-    if (this.props.height === "auto") {
-
+    if ((this.props.height === "auto") || (this.props.vertical) === "auto") {
       data.style.height = Session.get('appHeight');
 
       if(Session.get('showNavbars')){
@@ -63,6 +62,20 @@ export class GlassCard extends React.Component {
       if(Session.get('mainPanelIsCard')){
         data.style.height = data.style.height - 40;
       }
+    } else if ((this.props.height === "tabpanel") || (this.props.vertical) === "tabpanel") {
+      data.style.height = Session.get('appHeight');
+
+      if(Session.get('showNavbars')){
+        data.style.height = data.style.height - 128;
+      }
+      if(Session.get('showSearchbar')){
+        data.style.height = data.style.height - 64;
+      }
+      if(Session.get('mainPanelIsCard')){
+        data.style.height = data.style.height - 40;
+      }
+
+      data.style.height = data.style.height - 80;
 
     } else {
       data.style.height = get(this, 'props.height');      
