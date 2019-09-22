@@ -3,6 +3,8 @@ import ReactMixin from 'react-mixin';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
 import { get } from 'lodash';
 
+import PropTypes from 'prop-types';
+
 export class TableNoData extends React.Component {
   getMeteorData() {
     let data = {};
@@ -28,6 +30,9 @@ export class TableNoData extends React.Component {
   }
 }
 
-ReactMixin(TableNoData.prototype, ReactMeteorData);
 
+TableNoData.propTypes = {
+  noDataPadding: PropTypes.number
+};
+ReactMixin(TableNoData.prototype, ReactMeteorData);
 export default TableNoData;
